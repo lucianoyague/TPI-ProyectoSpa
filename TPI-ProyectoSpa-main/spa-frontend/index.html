@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spa Relajante - Sentirse Bien</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+    // Verificar sesión y actualizar navbar
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('token');
+        const loginLink = document.getElementById('nav-login-link');
+        const adminLink = document.getElementById('nav-admin-link');
+
+        if (token) {
+            loginLink.style.display = 'none'; // Ocultar "Iniciar Sesión"
+            adminLink.style.display = 'block'; // Mostrar "Panel Admin"
+        } else {
+            loginLink.style.display = 'block';
+            adminLink.style.display = 'none';
+        }
+    });
+    </script>
+</head>
+
+<div id="toast-error" class="toast-error"></div>
+
+<body>
+
+    <nav class="navbar">
+        <img src="images/Logo blanco.png" alt="Logo del spa">
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#turnos">Turnos</a>
+            <a href="#contacto">Contacto</a>
+            <a href="login.html" id="nav-login-link">Iniciar Sesión</a>
+            <a href="admin.html" id="nav-admin-link" style="display: none;">Panel Admin</a>
+        </div>
+    </nav>
+
+    <h1 class="home-title">SENTIRSE BIEN</h1>
+
+<section class="hero-section">
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="images/spavideo.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+        </video>
+    </div>
+    
+    <div class="hero-content-container">
+        <div class="hero-image">
+            <img src="images/wachiturra.jpg" alt="Imagen de spa relajante">
+        </div>
+        
+        <div class="hero-text">
+            <h2 class="hero-title">"Sentite bien, desconectá del mundo y conecta con vos..."</h2>
+            <p class="hero-description">
+                En Sentirse Bien, creamos espacios donde el cuerpo y la mente se relajan en total armonía.
+                Cada tratamiento está pensado para que vivas una experiencia única
+                conectando con tus sentidos y alejándote del estrés cotidiano.
+                Sumergite en un mundo de calma, aromas suaves y manos expertas que cuidan de vos.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Resto de tu código HTML permanece igual -->
+
+    <section class="services-container" id="servicios">
+        <h2 class="services-title">NUESTROS SERVICIOS</h2>
+        <div class="services">
+            <div class="service-box">
+                <img src="images/masajes.jpeg" alt="Masajes Terapéuticos">
+                <h3>Masajes Terapéuticos</h3>
+                <p>Elige entre diferentes tipos de masajes para aliviar el estrés y mejorar tu bienestar.</p>
+            </div>
+            
+            <div class="service-box">
+                <img src="images/facial.jpeg" alt="Tratamientos Faciales">
+                <h3>Tratamientos Faciales</h3>
+                <p>Rejuvenece tu piel con nuestras terapias faciales y productos naturales.</p>
+            </div>
+            
+            <div class="service-box">
+                <img src="images/hidromasaje.jpg" alt="Hidromasaje">
+                <h3>Hidromasajes</h3>
+                <p>Disfruta de un momento de relajación total en nuestras piscinas de hidromasaje.</p>
+            </div>
+        </div>
+
+        <a href="servicios.html" class="explore-button">Explorar todos nuestros servicios</a>
+    </section>
+
+    <section class="turnos-container" id="turnos">
+        <div class="turnos-content">
+            <div class="turnos-left">
+                <h2 class="turnos-title">Reservá <br> tu turno</h2>
+                <img src="images/calendario.png" alt="Ícono de calendario">
+            </div>
+    
+            <div class="turnos-divider"></div>
+    
+            <div class="turnos-right">
+                <p class="turnos-description">Elige el tratamiento que deseas y reserva tu turno para vivir una experiencia de relajación única. Asegura tu bienestar con nuestro servicio de atención personalizada.</p>
+                <a href="turnos.html" class="reserve-button">Reservar ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="contact-container" id="contacto">
+        <div class="contact-content">
+            <div class="contact-box">
+                <div class="contact-left">
+                    <img src="images/logo blanco.png" alt="Logo del spa">
+                    <p>En nuestro spa, encontrarás el equilibrio perfecto entre bienestar y relajación. ¡Déjanos cuidarte!</p>
+                </div>
+            </div>
+    
+            <div class="contact-box contact-right">
+                <div class="form-wrapper">
+                    <h2 class="contact-title">Newsletter</h2>
+    
+                    <div class="form-container">
+                        <p>Suscribite para recibir novedades y promociones exclusivas.</p>
+                        <form class="subscribe-form">
+                            <input type="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit">ENVIAR</button>
+                        </form>
+                    </div>
+                </div>
+    
+                <div class="contact-info">
+                    <h2 class="contact-title">Contáctenos</h2>
+                    <div class="contact-description">
+                        <p>📍 Dirección: Av. Resistencia 123, Chaco</p>
+                        <p>📞 Teléfono: +54 3624762542</p>
+                        <p>📩 Email: reservas@sentirsebien.com</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/profile.php?id=61576044302960" target="_blank" rel="noopener" aria-label="Facebook">
+                                <img src="images/facebook.png" alt="Facebook">
+                            </a>
+                            <a href="https://instagram.com/sentirsebien" target="_blank" rel="noopener" aria-label="Instagram">
+                                <img src="images/instagram.png" alt="Instagram">
+                            </a>
+                            <a href="https://twitter.com/sentirsebien" target="_blank" rel="noopener" aria-label="Twitter">
+                                <img src="images/twitter.png" alt="Twitter">
+                            </a>
+                            <a href="https://wa.me/543624762542" target="_blank" rel="noopener" aria-label="WhatsApp">
+                                <img src="images/whatsapp.png" alt="WhatsApp">
+                            </a>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

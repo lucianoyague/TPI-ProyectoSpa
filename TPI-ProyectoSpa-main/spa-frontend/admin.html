@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Sentirse Bien</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar admin-navbar">
+        <img src="images/Logo blanco.png" alt="Logo del spa">
+        <div class="nav-links">
+            <a href="index.html" class="admin-nav-link">Inicio</a>
+            <button id="logout-button" class="admin-nav-link">Cerrar Sesión</button>
+            </div>
+    </nav>
+
+    <h1 class="admin-title">Panel de Administración</h1>
+    <section class="admin-container">
+        <div class="admin-section">
+            <h2>Gestión de Servicios</h2>
+            <div class="button-group">
+                <button id="add-service" class="action-button">➕ Añadir Servicio</button>
+                <button id="edit-service" class="action-button">✏️ Modificar Servicio</button>
+                <button id="delete-service" class="action-button">🗑️ Eliminar Servicio</button>
+            </div>
+        </div>
+
+        <div id="service-form-container" class="admin-section hidden">
+            <h2 id="service-form-title">Añadir Servicio</h2>
+            <form id="service-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre del Servicio:</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Ej: Hidromasajes">
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" placeholder="Descripción del servicio"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="duracion">Duración (min):</label>
+                    <input type="number" id="duracion" name="duracion" required placeholder="Ej: 60">
+                </div>
+
+                <div class="form-group">
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio" name="precio" step="0.01" required placeholder="Ej: 50.00">
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria">
+                        <option value="Masajes">Masajes</option>
+                        <option value="Belleza">Belleza</option>
+                        <option value="Tratamientos Faciales">Tratamientos Faciales</option>
+                        <option value="Tratamientos Corporales">Tratamientos Corporales</option>
+                        <option value="Servicios Grupales">Servicios Grupales</option>
+                    </select>
+                    <p id="grupal-notice" class="notice hidden">Nota: Los servicios grupales solo permiten un servicio por reserva.</p>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit">Guardar</button>
+                    <button type="button" id="cancel-service">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="admin-section">
+            <h2>Gestión de Combos</h2>
+            <div class="button-group">
+                <button id="add-combo" class="action-button">➕ Añadir Combo</button>
+                <button id="edit-combo" class="action-button">✏️ Modificar Combo</button>
+                <button id="delete-combo" class="action-button">🗑️ Eliminar Combo</button>
+            </div>
+        </div>
+
+        <div id="combo-form-container" class="admin-section hidden">
+    <h2 id="combo-form-title">Añadir Combo</h2>
+    <form id="combo-form">
+        <div class="form-group">
+            <label for="combo-nombre">Nombre del Combo:</label>
+            <input type="text" id="combo-nombre" name="combo-nombre" required placeholder="Ej: Relax Total">
+        </div>
+
+        <div class="form-group">
+            <label for="combo-descripcion">Descripción:</label>
+            <textarea id="combo-descripcion" name="combo-descripcion" placeholder="Descripción del combo"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="combo-precio">Precio Total:</label>
+            <input type="number" id="combo-precio" name="combo-precio" step="0.01" required placeholder="Ej: 120.00">
+        </div>
+
+        <div class="form-group">
+            <label for="combo-servicios">Servicios en el Combo:</label>
+            <input type="text" id="combo-servicios" name="combo-servicios" placeholder="IDs de servicios separados por comas">
+            <p class="notice">Ejemplo: 1, 2, 5</p>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit">Guardar</button>
+            <button type="button" id="cancel-combo">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+        <div class="admin-section">
+            <h2>Generar Código de Invitación</h2>
+            <form id="generate-code-form">
+                <div class="form-group">
+                    <label for="email">Correo del nuevo administrador:</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required placeholder="ejemplo@correo.com">
+                </div>
+                <button type="submit">✉️ Generar y Enviar Código</button>
+            </form>
+        </div>
+
+        </section>
+    <script src="admin.js"></script>
+    <script>
+        // Mostrar/ocultar nota para servicios grupales
+        document.getElementById('categoria').addEventListener('change', function() {
+            const notice = document.getElementById('grupal-notice');
+            if (this.value === 'Servicios Grupales') {
+                notice.classList.remove('hidden');
+            } else {
+                notice.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Turno - Sentirse Bien</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script defer src="turnos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            const loginLink = document.getElementById('nav-login-link');
+            const adminLink = document.getElementById('nav-admin-link');
+
+            if (token) {
+                loginLink.style.display = 'none';
+                adminLink.style.display = 'block';
+            } else {
+                loginLink.style.display = 'block';
+                adminLink.style.display = 'none';
+            }
+        });
+    </script>
+</head>
+
+
+<div id="toast-error" class="toast-error"></div>
+
+<body>
+    <nav class="navbar">
+        <img src="images/Logo blanco.png" alt="Logo del spa">
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="turnos.html">Turnos</a>
+            <a href="#contacto">Contacto</a>
+            <a href="login.html" id="nav-login-link">Iniciar Sesión</a>
+            <a href="admin.html" id="nav-admin-link" style="display: none;">Panel Admin</a>
+        </div>
+    </nav>
+
+    <h1 class="turnos-page-title">RESERVAR TU TURNO</h1>
+
+    <section class="turnos-main-container">
+        <div class="turnos-form-container">
+            <form id="turnos-form">
+                <div class="turnos-form-group">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class="turnos-form-group">
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" required>
+                </div>
+
+                <div class="turnos-form-group">
+                    <h3>Selecciona tus servicios:</h3>
+                    <div id="turnos-servicios-list">
+                        </div>
+                </div>
+
+                <button id="continuar-btn" class="turnos-reserve-button" type="button">Continuar</button>
+            </form>
+        </div>
+
+        <div class="turnos-summary-container">
+            <h2>Resumen de tu reserva</h2>
+            <p><strong>Fecha:</strong> <span id="resumen-fecha">No seleccionada</span></p>
+            <p><strong>Hora:</strong> <span id="resumen-hora">No seleccionada</span></p>
+            <h3>Servicios seleccionados:</h3>
+            <ul id="resumen-servicios">
+                </ul>
+            <p><strong>Duración total:</strong> <span id="resumen-duracion">0</span> min</p>
+            <p><strong>Precio total:</strong> $<span id="resumen-precio">0</span></p>
+        </div>
+    </section>
+
+    <footer class="contact-container" id="contacto">
+        <div class="contact-content">
+            <div class="contact-box">
+                <div class="contact-left">
+                    <img src="images/logo blanco.png" alt="Logo del spa">
+                    <p>En nuestro spa, encontrarás el equilibrio perfecto entre bienestar y relajación. ¡Déjanos cuidarte!</p>
+                </div>
+            </div>
+    
+            <div class="contact-box contact-right">
+                <div class="form-wrapper">
+                    <h2 class="contact-title">Newsletter</h2>
+    
+                    <div class="form-container">
+                        <p>Suscribite para recibir novedades y promociones exclusivas.</p>
+                        <form class="subscribe-form">
+                            <input type="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit">ENVIAR</button>
+                        </form>
+                    </div>
+                </div>
+    
+                <div class="contact-info">
+                    <h2 class="contact-title">Contáctenos</h2>
+                    <div class="contact-description">
+                        <p>📍 Dirección: Av. Resistencia 123, Chaco</p>
+                        <p>📞 Teléfono: +54 3624762542</p>
+                        <p>📩 Email: reservas@sentirsebien.com</p>
+                        <div class="social-icons">
+                            <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                            <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+                            <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+                            <a href="#"><img src="images/whatsapp.png" alt="WhatsApp"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

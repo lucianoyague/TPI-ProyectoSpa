@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Sentirse Bien</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="servicios.js"></script>
+    <script>
+        // Verificar sesión y actualizar navbar
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            const loginLink = document.getElementById('nav-login-link');
+            const adminLink = document.getElementById('nav-admin-link');
+
+            if (token) {
+                loginLink.style.display = 'none';
+                adminLink.style.display = 'block';
+            } else {
+                loginLink.style.display = 'block';
+                adminLink.style.display = 'none';
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="images/Logo blanco.png" alt="Logo del spa">
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="turnos.html">Turnos</a>
+            <a href="#contacto">Contacto</a>
+            <a href="login.html" id="nav-login-link">Iniciar Sesión</a>
+            <a href="admin.html" id="nav-admin-link" style="display: none;">Panel Admin</a>
+        </div>
+    </nav>
+
+    <h1 class="home-title">NUESTROS SERVICIOS</h1>
+
+    <section class="services-container">
+        <h2 class="services-title">Servicios Individuales</h2>
+        <div class="services" id="servicios-individuales">
+            </div>
+    </section>
+
+    <section class="services-container">
+        <h2 class="services-title">Servicios Grupales</h2>
+        <div class="services" id="servicios-grupales">
+            </div>
+    </section>
+
+    <section class="services-container">
+        <h2 class="services-title">Combos Disponibles</h2>
+        <div class="combos" id="combos-container"></div>
+    </section>
+
+    <div class="services-container">
+        <a href="index.html" class="explore-button">Volver al inicio</a>
+    </div>
+
+    <footer class="contact-container" id="contacto">
+        <div class="contact-content">
+            <div class="contact-box">
+                <div class="contact-left">
+                    <img src="images/logo blanco.png" alt="Logo del spa">
+                    <p>En nuestro spa, encontrarás el equilibrio perfecto entre bienestar y relajación. ¡Déjanos cuidarte!</p>
+                </div>
+            </div>
+    
+            <div class="contact-box contact-right">
+                <div class="form-wrapper">
+                    <h2 class="contact-title">Newsletter</h2>
+    
+                    <div class="form-container">
+                        <p>Suscribite para recibir novedades y promociones exclusivas.</p>
+                        <form class="subscribe-form">
+                            <input type="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit">ENVIAR</button>
+                        </form>
+                    </div>
+                </div>
+    
+                <div class="contact-info">
+                    <h2 class="contact-title">Contáctenos</h2>
+                    <div class="contact-description">
+                        <p>📍 Dirección: Av. Resistencia 123, Chaco</p>
+                        <p>📞 Teléfono: +54 3624762542</p>
+                        <p>📩 Email: reservas@sentirsebien.com</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/profile.php?id=61576044302960" target="_blank" rel="noopener" aria-label="Facebook">
+                                <img src="images/facebook.png" alt="Facebook">
+                            </a>
+                            <a href="https://instagram.com/sentirsebien" target="_blank" rel="noopener" aria-label="Instagram">
+                                <img src="images/instagram.png" alt="Instagram">
+                            </a>
+                            <a href="https://twitter.com/sentirsebien" target="_blank" rel="noopener" aria-label="Twitter">
+                                <img src="images/twitter.png" alt="Twitter">
+                            </a>
+                            <a href="https://wa.me/543624762542" target="_blank" rel="noopener" aria-label="WhatsApp">
+                                <img src="images/whatsapp.png" alt="WhatsApp">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

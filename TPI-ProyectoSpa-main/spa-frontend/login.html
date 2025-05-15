@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Sentirse Bien</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<div id="toast-error" class="toast-error"></div>
+
+
+<body class="flex-container">
+    <nav class="navbar">
+        <img src="images/Logo blanco.png" alt="Logo del spa">
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="turnos.html">Turnos</a>
+            <a href="#contacto">Contacto</a>
+            <a href="login.html" id="nav-login-link">Iniciar Sesión</a>
+            <a href="admin.html" id="nav-admin-link" style="display: none;">Panel Admin</a>
+        </div>
+    </nav>
+
+    <main class="profile-container">
+        <div class="profile-header">
+            <h1 class="profile-title">Iniciar Sesión</h1>
+        </div>
+        <div class="profile-content">
+            <form id="login-form" class="styled-form">
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required placeholder="Ingresa tu correo">
+                </div>
+                <div class="form-group">
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" name="contraseña" required placeholder="Ingresa tu contraseña">
+                </div>
+                <button type="submit" class="form-button">Iniciar Sesión</button>
+            </form>
+            <p>¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="images/Logo blanco.png" alt="Logo del spa">
+            <p>© 2025 Sentirse Bien. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="login.js"></script>
+</body>
+</html>

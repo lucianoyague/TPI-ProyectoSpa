@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Reserva - Sentirse Bien</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="contacto.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            const loginLink = document.getElementById('nav-login-link');
+            const adminLink = document.getElementById('nav-admin-link');
+
+            if (token) {
+                loginLink.style.display = 'none';
+                adminLink.style.display = 'block';
+            } else {
+                loginLink.style.display = 'block';
+                adminLink.style.display = 'none';
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <div id="toast-error" class="toast-error"></div>
+
+    <nav class="navbar">
+        <img src="images/Logo blanco.png" alt="Logo del spa">
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="turnos.html">Turnos</a>
+            <a href="#contacto">Contacto</a>
+            <a href="login.html" id="nav-login-link">Iniciar Sesión</a>
+            <a href="admin.html" id="nav-admin-link" style="display: none;">Panel Admin</a>
+        </div>
+    </nav>
+
+    <h1 class="contact-page-title">CONFIRMAR RESERVA</h1>
+
+     <section class="contact-main-container">
+        <div class="contact-form-container">
+            <form id="contacto-form">
+                <h2>Datos Personales</h2>
+                <div class="contact-form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="nacionalidad">Nacionalidad:</label>
+                    <input type="text" id="nacionalidad" name="nacionalidad" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="dni">DNI:</label>
+                    <input type="text" id="dni" name="dni" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="confirmar-correo">Confirmar Correo Electrónico:</label>
+                    <input type="email" id="confirmar-correo" name="confirmar-correo" required>
+                </div>
+
+                <h2>Comentario (opcional)</h2>
+                <div class="contact-form-group">
+                    <label for="comentario">Comentario:</label>
+                    <textarea id="comentario" name="comentario" rows="4"></textarea>
+                </div>
+
+                <h2>Método de Pago</h2>
+                <div class="contact-form-group">
+                    <label class="contact-metodo-pago-label">
+                        <input class="contact-metodo-pago-input" type="radio" name="metodo-pago" value="efectivo" required>
+                        Efectivo
+                    </label>
+                    <p class="contact-metodo-pago-info" id="efectivo-info" style="display: none;">
+                        Deberá abonar el total del servicio en el área de recepción según el día y la hora indicados en su turno.
+                    </p>
+                </div>
+                <div class="contact-form-group">
+                    <label class="contact-metodo-pago-label">
+                        <input class="contact-metodo-pago-input" type="radio" name="metodo-pago" value="transferencia" required>
+                        Transferencia Bancaria
+                    </label>
+                    <p class="contact-metodo-pago-info" id="transferencia-info" style="display: none;">
+                        Debe realizar la transferencia al siguiente CBU/CVU: <strong>1234567890123456789012</strong>.<br>Envíe el comprobante a <strong>reservas@sentirsebien.com</strong>.<br>La reserva será válida por 24 horas hasta que recibamos el comprobante solicitado. Le informaremos mediante correo electrónico la confirmación de su reserva una vez recibido el comprobante.
+                    </p>
+                </div>
+
+                <button type="submit" class="contact-reserve-button">Confirmar reserva</button>
+            </form>
+        </div>
+
+        <div class="turnos-summary-container">
+            <h2>Resumen de tu reserva</h2>
+            <p><strong>Fecha:</strong> <span id="resumen-fecha">No seleccionada</span></p>
+            <p><strong>Hora:</strong> <span id="resumen-hora">No seleccionada</span></p>
+            <h3>Servicios seleccionados:</h3>
+            <ul id="resumen-servicios">
+                </ul>
+            <p><strong>Duración total:</strong> <span id="resumen-duracion">0</span> min</p>
+            <p><strong>Precio total:</strong> $<span id="resumen-precio">0</span></p>
+        </div>
+    </section>
+
+    <footer class="contact-container" id="contacto">
+        <div class="contact-content">
+            <div class="contact-box">
+                <div class="contact-left">
+                    <img src="images/logo blanco.png" alt="Logo del spa">
+                    <p>En nuestro spa, encontrarás el equilibrio perfecto entre bienestar y relajación. ¡Déjanos cuidarte!</p>
+                </div>
+            </div>
+    
+            <div class="contact-box contact-right">
+                <div class="form-wrapper">
+                    <h2 class="contact-title">Newsletter</h2>
+    
+                    <div class="form-container">
+                        <p>Suscribite para recibir novedades y promociones exclusivas.</p>
+                        <form class="subscribe-form">
+                            <input type="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit">ENVIAR</button>
+                        </form>
+                    </div>
+                </div>
+    
+                <div class="contact-info">
+                    <h2 class="contact-title">Contáctenos</h2>
+                    <div class="contact-description">
+                        <p>📍 Dirección: Av. Resistencia 123, Chaco</p>
+                        <p>📞 Teléfono: +54 3624762542</p>
+                        <p>📩 Email: reservas@sentirsebien.com</p>
+                        <div class="social-icons">
+                            <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                            <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+                            <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+                            <a href="#"><img src="images/whatsapp.png" alt="WhatsApp"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
